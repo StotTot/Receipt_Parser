@@ -1,6 +1,6 @@
 package dev.debride.receiptparser.models;
 
-public class Receipt {
+public class ReceiptDTO {
     private String data;
 
     private Double total;
@@ -9,11 +9,14 @@ public class Receipt {
 
     private String url;
 
-    public Receipt(String data) {
-        this.data = data;
+    public ReceiptDTO(Receipt receipt) {
+        this.data = receipt.getData();
+        this.total = receipt.getTotal();
+        this.taxesPaid = receipt.getTaxesPaid();
+        this.url = receipt.getUrl();
     }
 
-    public Receipt() {
+    public ReceiptDTO() {
 
     }
 
@@ -51,7 +54,7 @@ public class Receipt {
 
     @Override
     public String toString() {
-        return "Receipt{" +
+        return "ReceiptDTO{" +
                 "data='" + data + '\'' +
                 ", total=" + total +
                 ", taxesPaid=" + taxesPaid +

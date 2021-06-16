@@ -52,6 +52,7 @@ public class ParseServiceImpl implements ParseService{
                 receipt.setData(text);
                 receipt.setTotal(Double.valueOf(df.format(Double.valueOf(tmp.get(tmp.indexOf("TOTAL") + 1)))));
                 receipt.setTaxesPaid(Double.valueOf(df.format(Double.valueOf(tmp.get(tmp.indexOf("TOTAL") + 1)) - Double.valueOf(tmp.get(tmp.indexOf("SUBTOTAL") + 1)))));
+                receipt.setUrl(filePath);
                 System.out.println(receipt.toString());
                 return receipt;
 

@@ -2,8 +2,16 @@ plugins {
 	id 'org.springframework.boot' version '2.5.1'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
+	id "org.sonarqube" version "3.3"
 }
 
+sonarqube {
+	properties {
+		property "sonar.projectKey", "StotTot_Receipt_Parser"
+		property "sonar.organization", "stottot"
+		property "sonar.host.url", "https://sonarcloud.io"
+	}
+}
 group = 'dev.debride'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
