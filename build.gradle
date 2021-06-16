@@ -29,8 +29,6 @@ dependencies {
 	implementation group: 'net.sourceforge.tess4j', name: 'tess4j', version: '4.5.4'
 	implementation group: 'commons-io', name: 'commons-io', version: '2.10.0'
 
-
-
 }
 
 test {
