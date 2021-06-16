@@ -10,6 +10,9 @@ sonarqube {
 		property "sonar.projectKey", "StotTot_Receipt_Parser"
 		property "sonar.organization", "stottot"
 		property "sonar.host.url", "https://sonarcloud.io"
+		property "sonar.coverage.exclusions", "**/*Application*", "**/models/**"
+		property "sonar.exlusions", "**/models/**"
+
 	}
 }
 group = 'dev.debride'
