@@ -6,6 +6,7 @@ import dev.debride.receiptparser.service.ParseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,6 +16,7 @@ import java.net.URISyntaxException;
 
 @Component
 @RestController
+@CrossOrigin
 public class ParseController {
 
     @Autowired

@@ -26,11 +26,14 @@ public class ParseServiceTest {
 
     @Test
     void parseData() {
+        System.out.println("_______________________________________________________________");
+        System.out.println(System.getenv("JAVA_OCR"));
         Assertions.assertNotNull(test);
     }
 
     @Test
     void parseTotal() {
         Assertions.assertEquals(46.3, test.getTotal());
+
     }
 }

@@ -1,9 +1,11 @@
 package dev.debride.receiptparser.service;
 
 import dev.debride.receiptparser.models.Receipt;
+import dev.debride.receiptparser.repos.ReceiptRepo;
 import net.sourceforge.tess4j.Tesseract;
 import net.sourceforge.tess4j.TesseractException;
 import org.apache.commons.io.FileUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +22,9 @@ import java.util.List;
 @Component
 @Service
 public class ParseServiceImpl implements ParseService{
+
+    @Autowired
+    ReceiptRepo receiptRepo;
 
     public Receipt parse(String filePath) throws URISyntaxException, IOException {
         File file;
@@ -53,6 +58,8 @@ public class ParseServiceImpl implements ParseService{
                 receipt.setTotal(Double.valueOf(df.format(Double.valueOf(tmp.get(tmp.indexOf("TOTAL") + 1)))));
                 receipt.setTaxesPaid(Double.valueOf(df.format(Double.valueOf(tmp.get(tmp.indexOf("TOTAL") + 1)) - Double.valueOf(tmp.get(tmp.indexOf("SUBTOTAL") + 1)))));
                 receipt.setUrl(filePath);
+
+                receipt = receiptRepo.save(receipt);
                 System.out.println(receipt.toString());
                 return receipt;
 

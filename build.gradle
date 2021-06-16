@@ -24,13 +24,16 @@ repositories {
 }
 
 dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-data-rest'
 	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	runtimeOnly 'com.h2database:h2'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	implementation group: 'net.sourceforge.tess4j', name: 'tess4j', version: '4.5.4'
 	implementation group: 'commons-io', name: 'commons-io', version: '2.10.0'
+	implementation group: 'org.postgresql', name: 'postgresql', version: '42.2.21'
+
 
 }
 
