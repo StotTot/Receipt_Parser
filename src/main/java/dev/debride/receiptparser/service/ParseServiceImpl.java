@@ -32,19 +32,11 @@ public class ParseServiceImpl implements ParseService{
         URL url = new URL(filePath);
         FileUtils.copyURLToFile(url, new File("images\\temp.jpg"));
 
-        ClassLoader classLoader = getClass().getClassLoader();
-        URL resource = classLoader.getResource("traineddata");
-        if (resource == null) {
-            throw new IllegalArgumentException("File not found!!");
-        } else {
-            file = new File(resource.toURI());
-        }
-
         DecimalFormat df = new DecimalFormat("#.##");
         String text;
 
             try {
-                tesseract.setDatapath(file.getPath());
+                tesseract.setDatapath("traineddata");
                 text = tesseract.doOCR(new File("Images\\temp.jpg"));
                 System.out.println(text);
 
