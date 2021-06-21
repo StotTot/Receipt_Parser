@@ -30,14 +30,14 @@ public class ParseServiceImpl implements ParseService{
         File file;
         Tesseract tesseract = new Tesseract();
         URL url = new URL(filePath);
-        FileUtils.copyURLToFile(url, new File("images\\temp.jpg"));
+        FileUtils.copyURLToFile(url, new File("images/temp.jpg"));
 
         DecimalFormat df = new DecimalFormat("#.##");
         String text;
 
             try {
                 tesseract.setDatapath("traineddata");
-                text = tesseract.doOCR(new File("Images\\temp.jpg"));
+                text = tesseract.doOCR(new File("images/temp.jpg"));
                 System.out.println(text);
 
                 List<String> tmp = Arrays.asList(text.split("\\s+"));
