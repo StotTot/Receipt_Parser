@@ -2,9 +2,7 @@ spring:
   application:
     name: Receipt-OCR
   datasource:
-    url: ${JAVA_OCR}
+    url: jdbc:postgresql://localhost/Receipt?user=postgres&password=postgres
     driver-class-name: org.postgresql.Driver
   jpa:
     show-sql: true
-server:
-  port: 8081

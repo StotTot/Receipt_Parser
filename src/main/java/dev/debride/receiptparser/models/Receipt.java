@@ -18,6 +18,8 @@ public class Receipt {
     private Double taxesPaid;
     @Column(name = "url")
     private String url;
+    @Column(name = "date")
+    private String date;
 
     public Receipt(String data) {
         this.data = data;
@@ -59,13 +61,31 @@ public class Receipt {
         this.url = url;
     }
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
     @Override
     public String toString() {
         return "Receipt{" +
-                "data='" + data + '\'' +
+                "id=" + id +
+                ", data='" + data + '\'' +
                 ", total=" + total +
                 ", taxesPaid=" + taxesPaid +
                 ", url='" + url + '\'' +
+                ", date='" + date + '\'' +
                 '}';
     }
 }

@@ -18,6 +18,7 @@ import java.net.URL;
 import java.text.DecimalFormat;
 import java.util.Arrays;
 import java.util.List;
+import java.util.regex.Pattern;
 
 @Component
 @Service
@@ -25,6 +26,8 @@ public class ParseServiceImpl implements ParseService{
 
     @Autowired
     ReceiptRepo receiptRepo;
+
+    private static Pattern DATE_PATTERN = Pattern.compile("^\\d{2}/\\d{2}/\\d{2}$");
 
     public Receipt parse(String filePath) throws URISyntaxException, IOException {
         File file;
@@ -34,6 +37,7 @@ public class ParseServiceImpl implements ParseService{
 
         DecimalFormat df = new DecimalFormat("#.##");
         String text;
+        String date = null;
 
             try {
                 tesseract.setDatapath("traineddata");
@@ -50,6 +54,18 @@ public class ParseServiceImpl implements ParseService{
                 receipt.setTotal(Double.valueOf(df.format(Double.valueOf(tmp.get(tmp.indexOf("TOTAL") + 1)))));
                 receipt.setTaxesPaid(Double.valueOf(df.format(Double.valueOf(tmp.get(tmp.indexOf("TOTAL") + 1)) - Double.valueOf(tmp.get(tmp.indexOf("SUBTOTAL") + 1)))));
                 receipt.setUrl(filePath);
+
+
+
+                for (int i = tmp.size() - 1; i > 0; i-- ) {
+                    if (DATE_PATTERN.matcher(tmp.get(i)).matches()) {
+                        date = tmp.get(i);
+                        break;
+                    }
+                    date = "N/A";
+                }
+                
+                receipt.setDate(date);
 
                 receipt = receiptRepo.save(receipt);
                 System.out.println(receipt.toString());

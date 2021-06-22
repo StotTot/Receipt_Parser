@@ -26,8 +26,6 @@ public class ParseServiceTest {
 
     @Test
     void parseData() {
-        System.out.println("_______________________________________________________________");
-        System.out.println(System.getenv("JAVA_OCR"));
         Assertions.assertNotNull(test);
     }
 
