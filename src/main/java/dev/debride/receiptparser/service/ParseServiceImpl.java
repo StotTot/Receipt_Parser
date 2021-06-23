@@ -16,7 +16,11 @@ import java.net.URISyntaxException;
 import java.net.URL;
 
 import java.text.DecimalFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 import java.util.regex.Pattern;
 
@@ -38,7 +42,7 @@ public class ParseServiceImpl implements ParseService{
         DecimalFormat df = new DecimalFormat("#.##");
         String text;
         String date = null;
-
+        Long dateE = null;
             try {
                 tesseract.setDatapath("traineddata");
                 text = tesseract.doOCR(new File("images/temp.jpg"));
@@ -60,18 +64,22 @@ public class ParseServiceImpl implements ParseService{
                 for (int i = tmp.size() - 1; i > 0; i-- ) {
                     if (DATE_PATTERN.matcher(tmp.get(i)).matches()) {
                         date = tmp.get(i);
+
+                        Date d = new SimpleDateFormat("MM/dd/yy").parse(date);
+                        dateE = d.getTime();
                         break;
                     }
-                    date = "N/A";
+                    dateE = Long.valueOf(0);
                 }
-                
-                receipt.setDate(date);
+
+
+                receipt.setDate(dateE);
 
                 receipt = receiptRepo.save(receipt);
                 System.out.println(receipt.toString());
                 return receipt;
 
-            } catch (TesseractException e) {
+            } catch (TesseractException | ParseException e) {
                 e.printStackTrace();
             }
             return null;

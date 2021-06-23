@@ -12,7 +12,7 @@ public class ReceiptDTO {
 
     private String url;
 
-    private String date;
+    private Long date;
 
     public ReceiptDTO(Receipt receipt) {
         this.id = receipt.getId();
@@ -79,11 +79,11 @@ public class ReceiptDTO {
         this.url = url;
     }
 
-    public String getDate() {
+    public Long getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(Long date) {
         this.date = date;
     }
 

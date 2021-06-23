@@ -19,7 +19,7 @@ public class Receipt {
     @Column(name = "url", length = 1024)
     private String url;
     @Column(name = "date")
-    private String date;
+    private Long date;
 
     public Receipt(String data) {
         this.data = data;
@@ -69,11 +69,11 @@ public class Receipt {
         this.id = id;
     }
 
-    public String getDate() {
+    public Long getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(Long date) {
         this.date = date;
     }
 

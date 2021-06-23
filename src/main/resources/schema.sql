@@ -5,6 +5,6 @@ create table receipts (
 	data varchar(10000),
 	total decimal,
 	taxes decimal,
-	date varchar(10),
+	date bigint,
 	url varchar(1024)
 );
