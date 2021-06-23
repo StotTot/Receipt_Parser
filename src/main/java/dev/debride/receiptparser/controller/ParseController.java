@@ -26,10 +26,8 @@ public class ParseController {
     ParseService parseService;
 
     @PostMapping("/parse")
-    public ResponseEntity<ReceiptDTO> parseReceipt(@RequestBody Receipt url) throws URISyntaxException, IOException {
-        if(url.getUrl() == null)
-            return ResponseEntity.status(400).body(null);
-        return ResponseEntity.status(200).body(new ReceiptDTO(parseService.parse(url.getUrl())));
+    public ResponseEntity<ReceiptDTO> parseReceipt(@RequestBody(required = true) String url) throws URISyntaxException, IOException {
+        return ResponseEntity.status(200).body(new ReceiptDTO(parseService.parse(url)));
     }
 
     @GetMapping("/receipts")
