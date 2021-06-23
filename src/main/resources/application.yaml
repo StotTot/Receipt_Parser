@@ -1,8 +1,14 @@
 spring:
   application:
     name: Receipt-OCR
-  datasource:
-    url: jdbc:postgresql://localhost/Receipt?user=postgres&password=postgres
-    driver-class-name: org.postgresql.Driver
+  h2:
+    console:
+      enabled: true
+      path: /h2
+    datasource:
+      url: jdbc:h2:file:~/test
+      username: sa
+      password:
+      driver-class-name: org.postgresql.Driver
   jpa:
     show-sql: true

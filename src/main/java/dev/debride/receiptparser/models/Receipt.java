@@ -10,13 +10,13 @@ public class Receipt {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "receipt_id")
     private Integer id;
-    @Column(name = "data")
+    @Column(name = "data", length = 10000)
     private String data;
     @Column(name = "total")
     private Double total;
     @Column(name = "taxes")
     private Double taxesPaid;
-    @Column(name = "url")
+    @Column(name = "url", length = 1024)
     private String url;
     @Column(name = "date")
     private String date;
