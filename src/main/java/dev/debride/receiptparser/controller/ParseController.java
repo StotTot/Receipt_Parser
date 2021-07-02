@@ -1,5 +1,6 @@
 package dev.debride.receiptparser.controller;
 
+import dev.debride.receiptparser.exceptions.ReceiptNotFoundException;
 import dev.debride.receiptparser.models.Receipt;
 import dev.debride.receiptparser.models.ReceiptDTO;
 import dev.debride.receiptparser.repos.ReceiptRepo;
@@ -9,10 +10,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
+import javax.swing.text.html.Option;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Component
 @RestController
@@ -39,6 +42,18 @@ public class ParseController {
             receiptDTOList.add(new ReceiptDTO(r));
         }
         return ResponseEntity.status(200).body(receiptDTOList);
+    }
+
+    @GetMapping("/receipts/{id}")
+    public ResponseEntity<ReceiptDTO> getReceiptById(@PathVariable int id) throws ReceiptNotFoundException {
+        ReceiptDTO receiptDTO;
+        Optional<Receipt> op = receiptRepo.findById(id);
+
+        if (op.isPresent())
+            receiptDTO = new ReceiptDTO(op.get());
+        else
+            throw new ReceiptNotFoundException("Receipt Not Found!");
+        return ResponseEntity.status(200).body(receiptDTO);
     }
 
 }
