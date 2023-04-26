@@ -22,6 +22,6 @@ A api to parse data from store receipts.
 
 ![Get All](https://user-images.githubusercontent.com/22485477/234639729-8d602da5-c81d-418f-b3e4-e883676f5913.png "Get all" )
 
-- Get by id
+- Get by ID
 
 ![Get by ID](https://user-images.githubusercontent.com/22485477/234640066-5a6b3b76-6298-42f8-ab49-52aafa0b1142.png "Get by ID")
