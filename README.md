@@ -16,12 +16,12 @@ A api to parse data from store receipts.
 
 - Parse receipt
 
-![Parse](![Postman_q61tpB8iev](https://user-images.githubusercontent.com/22485477/234639517-968ee8da-5342-47b2-b82b-b032350056a1.png) "Parse Receipt")
+![Parse](https://user-images.githubusercontent.com/22485477/234639517-968ee8da-5342-47b2-b82b-b032350056a1.png "Parse Receipt")
 
 - Get all receipts
 
-![Get All](![image](https://user-images.githubusercontent.com/22485477/234639729-8d602da5-c81d-418f-b3e4-e883676f5913.png) "Get all" )
+![Get All](https://user-images.githubusercontent.com/22485477/234639729-8d602da5-c81d-418f-b3e4-e883676f5913.png "Get all" )
 
 - Get by id
 
-![Get by ID](![image](https://user-images.githubusercontent.com/22485477/234640066-5a6b3b76-6298-42f8-ab49-52aafa0b1142.png) "Get by ID")
+![Get by ID](https://user-images.githubusercontent.com/22485477/234640066-5a6b3b76-6298-42f8-ab49-52aafa0b1142.png "Get by ID")
