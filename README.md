@@ -1,5 +1,5 @@
 # Receipt_Parser
-A api to parse data from store receipts.
+An api to parse data from store receipts.
 ## Technologies used
 - Spring boot
 - Java 11
